@@ -12,19 +12,19 @@ X = [[181, 80, 44], [177, 70, 43], [160, 60, 38], [154, 54, 37], [166, 65, 40],
 Y = ['male', 'male', 'female', 'female', 'male', 'male', 'female', 'female',
 'female', 'male', 'male']
 
-dtClassifier = tree.DecisionTreeClassifier()
-dtClassifier = dtClassifier.fit(X,Y)
+dt_classifier = tree.DecisionTreeClassifier()
+dt_classifier = dt_classifier.fit(X,Y)
 
-rfClassifier = ensemble.RandomForestClassifier()
-rfClassifier = rfClassifier.fit(X,Y)
+rf_classifier = ensemble.RandomForestClassifier()
+rf_classifier = rf_classifier.fit(X,Y)
 
-nClassifier = neighbors.KNeighborsClassifier(n_neighbors=3)
-nClassifier = nClassifier.fit(X,Y)
+n_classifier = neighbors.KNeighborsClassifier(n_neighbors=3)
+n_classifier = n_classifier.fit(X,Y)
 
-dtPrediction = dtClassifier.predict([[150, 55, 36]])
-rfPrediction = rfClassifier.predict([[150, 55, 36]])
-nPrediction = nClassifier.predict([[150, 55, 36]])
+dt_prediction = dt_classifier.predict([[150, 55, 36]])
+rf_prediction = rf_classifier.predict([[150, 55, 36]])
+n_prediction = n_classifier.predict([[150, 55, 36]])
 
-print(dtPrediction)
-print(rfPrediction)
-print(nPrediction)
+print(dt_prediction)
+print(rf_prediction)
+print(n_prediction)
