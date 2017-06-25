@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 
 from sklearn import tree
+from sklearn import ensemble
+from sklearn import neighbors
 
 # [height, weight, shoe_size]
 X = [[181, 80, 44], [177, 70, 43], [160, 60, 38], [154, 54, 37], [166, 65, 40],
@@ -10,10 +12,19 @@ X = [[181, 80, 44], [177, 70, 43], [160, 60, 38], [154, 54, 37], [166, 65, 40],
 Y = ['male', 'male', 'female', 'female', 'male', 'male', 'female', 'female',
 'female', 'male', 'male']
 
-classifier = tree.DecisionTreeClassifier()
+dtClassifier = tree.DecisionTreeClassifier()
+dtClassifier = dtClassifier.fit(X,Y)
 
-classifier = classifier.fit(X,Y)
+rfClassifier = ensemble.RandomForestClassifier()
+rfClassifier = rfClassifier.fit(X,Y)
 
-prediction = classifier.predict([[150, 55, 36]])
+nClassifier = neighbors.KNeighborsClassifier(n_neighbors=3)
+nClassifier = nClassifier.fit(X,Y)
 
-print(prediction)
+dtPrediction = dtClassifier.predict([[150, 55, 36]])
+rfPrediction = rfClassifier.predict([[150, 55, 36]])
+nPrediction = nClassifier.predict([[150, 55, 36]])
+
+print(dtPrediction)
+print(rfPrediction)
+print(nPrediction)
